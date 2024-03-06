@@ -29,7 +29,7 @@ async function saveDataToDatabase(data) {
 async function getWeatherDataByName(cityName) {
    console.log("city in controller", cityName); //here we got the city name
    try{
-    const cityData =  getDataFromDatabase()
+    const cityData = await getDataFromDatabase();
     const weatherData = cityData.find((el)=> el.city.toLowerCase() === cityName.toLowerCase());
     console.log(weatherData);
     return weatherData.weather
